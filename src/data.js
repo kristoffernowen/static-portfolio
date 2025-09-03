@@ -89,6 +89,28 @@ const portfolioData = {
       lagt så mycket tid på designen.`,
       [new Link("Github Repo", "https://github.com/kristoffernowen/JobExp")]
     ),
+    new Project(
+      "Feedback App - LIA",
+      "ASP.NET Core Web API, Entity Framework Core, PostgreSQL, Angular, TypeScript",
+      `En prototyp för att låta användare lämna feedback på Duggas produkt. Jag byggde den 
+      under min första LIA, remote, hos Dugga i Stockholm.`,
+      `Jag byggde ett ASP.NET Core Web API med Entity Framework Core för att spara data i en
+      PostgreSQL databas. För frontenden använde jag Angular med TypeScript för att skapa en
+      interaktiv användarupplevelse. Jag lärde mig mycket om webbutveckling i praktiken.`
+    ),
+    new Project(
+      "Status på tjänster - uppdrag hos Contrl",
+      "ASP.NET Core Web API, Entity Framework Core, MySQL, React, TypeScript, " +
+        "xUnit, CI/CD via GitHub, Azure, HTML Agility Pack",
+      `Ett internt verktyg för att övervaka status på kunders tjänster. Jag byggde det
+      under ett uppdrag hos Contrl i Stockholm.`,
+      `Jag blev ombedd att bygga en enkel applikation för att övervaka status på deras
+      underleverantörers tjänster. Det är ett api som har en background service som läser 
+      av status för tjänsterna och sparar resultatet i en MySQL databas med Entity Framework 
+      Core. För frontend använde jag React med Typescript. Status blir avläst med intervaller 
+      och visas i en tabell. Det gick även att anmäla sig till epost notifikation om en tjänst
+      hade störningar.`
+    ),
   ],
   contact: {
     email: "kalle@example.com",

@@ -26,16 +26,18 @@ function renderPortfolio(data) {
       <div class="project-links">Länkar</div>
     `;
     const linksDiv = item.querySelector(".project-links");
-    p.links.forEach((link) => {
-      const div = document.createElement("div");
-      linksDiv.appendChild(div);
-      const a = document.createElement("a");
-      a.href = link.url;
-      a.innerText = link.name;
-      a.target = "_blank";
-      div.appendChild(a);
-      linksDiv.appendChild(document.createTextNode(" ")); // Mellanslag mellan länkar
-    });
+    if (p.links && p.links.length > 0) {
+      p.links.forEach((link) => {
+        const div = document.createElement("div");
+        linksDiv.appendChild(div);
+        const a = document.createElement("a");
+        a.href = link.url;
+        a.innerText = link.name;
+        a.target = "_blank";
+        div.appendChild(a);
+        linksDiv.appendChild(document.createTextNode(" ")); // Mellanslag mellan länkar
+      });
+    }
     projectList.appendChild(item);
   });
 
@@ -71,16 +73,18 @@ function openProjectModal(i) {
     </div>
   `;
   const linksDiv = modal.querySelector(".project-links");
-  project.links.forEach((link) => {
-    const div = document.createElement("div");
-    linksDiv.appendChild(div);
-    const a = document.createElement("a");
-    a.href = link.url;
-    a.innerText = link.name;
-    a.target = "_blank";
-    div.appendChild(a);
-    linksDiv.appendChild(document.createTextNode(" ")); // Mellanslag mellan länkar
-  });
+  if (project.links && project.links.length > 0) {
+    project.links.forEach((link) => {
+      const div = document.createElement("div");
+      linksDiv.appendChild(div);
+      const a = document.createElement("a");
+      a.href = link.url;
+      a.innerText = link.name;
+      a.target = "_blank";
+      div.appendChild(a);
+      linksDiv.appendChild(document.createTextNode(" ")); // Mellanslag mellan länkar
+    });
+  }
 }
 
 function closeModal() {
@@ -108,6 +112,11 @@ function getMainTechImages(i) {
   if (project.techStack.includes("TypeScript")) {
     images.push(
       `<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="TypeScript" title="TypeScript" />`
+    );
+  }
+  if (project.techStack.includes("Angular")) {
+    images.push(
+      `<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-plain.svg" alt="Angular" title="Angular" />`
     );
   }
 
