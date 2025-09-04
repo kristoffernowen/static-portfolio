@@ -96,7 +96,7 @@ function openAboutModal() {
   const modal = document.getElementById("modal");
   modal.style.display = "block";
   modal.innerHTML = `
-    <div class="modal-content">
+    <div class="about-modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
       <h2>Mer om mig</h2>
       <p>${portfolioData.about}</p>
@@ -108,7 +108,7 @@ function openProjectModal(i) {
   const modal = document.getElementById("modal");
   modal.style.display = "block";
   modal.innerHTML = `
-    <div class="modal-content">
+    <div class="project-modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
       <h2>${project.title}</h2>
       <p><strong>Teknik:</strong> ${project.techStack}</p>
