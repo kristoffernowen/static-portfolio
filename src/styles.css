@@ -3,6 +3,16 @@ body {
   margin: 20px;
 }
 
+header {
+  text-align: center;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+#about {
+  text-align: center;
+}
+
 #skills {
   display: flex;
   gap: 20px;

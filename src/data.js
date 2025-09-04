@@ -15,15 +15,21 @@ class Link {
   }
 }
 
-const portfolioData = {
-  name: "Kristoffer Nowen",
-  title: "Systemutvecklare .NET",
-  about: `Jag bygger moderna webbapplikationer med .NET och JavaScript.
+/* const oldAbout = `Jag bygger moderna webbapplikationer med .NET och JavaScript.
   Jag har min bakgrund inom humaniora och socialt arbete, vilket ger mig
   en god förmåga att förstå många perspektiv och behov. Det har också lärt 
   mig en hel del om kommunikation och samarbete. Jag är nyfiken och lär mig
   snabbt nya saker. Jag trivs i team och tycker om att samarbeta för att 
-  hitta de bästa lösningarna.`,
+  hitta de bästa lösningarna.`; */
+
+const about = `Med bakgrund inom humaniora och socialt arbete och kärlek för både det
+praktiskt enkla och det mångfacetterade, bygger jag moderna webbapplikationer med .NET och
+JavaScript.`;
+
+const portfolioData = {
+  name: "Kristoffer Nowen",
+  title: "Systemutvecklare .NET",
+  about: about,
   projects: [
     new Project(
       "Inlärningsapp",
@@ -103,7 +109,7 @@ const portfolioData = {
       "ASP.NET Core Web API, Entity Framework Core, MySQL, React, TypeScript, " +
         "xUnit, CI/CD via GitHub, Azure, HTML Agility Pack",
       `Ett internt verktyg för att övervaka status på kunders tjänster. Jag byggde det
-      under ett uppdrag hos Contrl i Stockholm.`,
+      under ett uppdrag hos Contrl i Örebro.`,
       `Jag blev ombedd att bygga en enkel applikation för att övervaka status på deras
       underleverantörers tjänster. Det är ett api som har en background service som läser 
       av status för tjänsterna och sparar resultatet i en MySQL databas med Entity Framework 
@@ -113,8 +119,8 @@ const portfolioData = {
     ),
   ],
   contact: {
-    email: "kalle@example.com",
-    linkedin: "https://linkedin.com/in/kalle",
-    github: "https://github.com/kalle",
+    email: "kristoffer.nowen@gmal.com",
+    linkedin: "https://linkedin.com/in/kristoffernowen",
+    github: "https://github.com/kristoffernowen",
   },
 };
