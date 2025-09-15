@@ -117,6 +117,18 @@ const portfolioData = {
       och visas i en tabell. Det gick även att anmäla sig till epost notifikation om en tjänst
       hade störningar.`
     ),
+    new Project(
+      "Budgivarprototyp - LIA hos Contrl AB",
+      "ASP.NET Core Web API, Entity Framework Core, MySQL, React",
+      `En prototyp för att hantera offerter. Jag byggde den under min andra LIA på plats hos Contrl i Örebro.`,
+      `Jag var ombedd att bygga en protyp som skulle ge företag möjlighet att lägga in ordrar i ett
+      system för att sedan få in offertar från leverantörer, för att få en god överblick och samlad
+      hantering. Jag byggde ett ASP.NET Core Web API med Entity Framework Core för att spara data i en
+      MySQL databas. APIet organiserades i en enlare Clean Architecture och hade autentisering med JWT 
+      och loggning med Serilog. För frontend använde jag React. Mestadels kretsade det kring en
+      tabellkomponent. Företag fick skapa ordrar och speca upp vad de ville ha, när och hur mycket.
+      Leverantörer kunde sedan lägga in sina offertar med bud på pris och levereranstid per rad.`
+    ),
   ],
   contact: {
     email: "kristoffer.nowen@gmail.com",
