@@ -19,10 +19,23 @@ function renderPortfolio(data) {
   renderProjects(data);
 
   document.getElementById("contact").innerHTML = `
+  <a href="mailto:${data.contact.email}">E-post</a> |
+  <a href="${data.contact.linkedin}">LinkedIn</a> |
+  <a href="${data.contact.github}">GitHub</a>
+`;
+  const desktopContact = document.getElementById("contact-desktop-content");
+  if (desktopContact) {
+    desktopContact.innerHTML = `
     <a href="mailto:${data.contact.email}">E-post</a> |
     <a href="${data.contact.linkedin}">LinkedIn</a> |
     <a href="${data.contact.github}">GitHub</a>
   `;
+  }
+  /* document.getElementById("contact").innerHTML = `
+    <a href="mailto:${data.contact.email}">E-post</a> |
+    <a href="${data.contact.linkedin}">LinkedIn</a> |
+    <a href="${data.contact.github}">GitHub</a>
+  `; */
 }
 
 function renderProjects(data) {
@@ -174,5 +187,13 @@ document.getElementById("modal").addEventListener("click", function (event) {
     closeModal();
   }
 });
+
+document
+  .getElementById("show-projects-btn")
+  .addEventListener("click", function () {
+    document
+      .getElementById("projects-section")
+      .scrollIntoView({ behavior: "smooth" });
+  });
 
 renderPortfolio(portfolioData);
