@@ -164,8 +164,8 @@ img {
   }
   .project-modal-content,
   .about-modal-content {
-    width: 98vw;
-    max-width: 98vw;
+    width: 90vw;
+    max-width: 90vw;
     margin: 10% auto;
     padding: 12px;
   }
