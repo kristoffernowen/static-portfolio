@@ -21,6 +21,7 @@ header {
 }
 
 #projects-section {
+  margin-top: 0;
   h3 {
     width: 100%;
     text-align: center;
@@ -37,20 +38,11 @@ header {
   margin-bottom: 20px;
 }
 
-/* .project {
-  border: 1px solid #ccc;
-  padding: 10px;
-  width: 20%;
-  background-color: rgb(209, 221, 224);
-} */
 .project {
-  /* flex: 1 1 30%; */
   box-sizing: border-box;
   margin: 0 10px;
   height: 30rem;
   width: 20rem;
-  /* max-height: 350px;
-  min-height: 250px; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -117,11 +109,7 @@ img {
   max-width: 800px;
   border-radius: 8px;
 }
-/* #close-btn {
-  float: right;
-  cursor: pointer;
-  font-size: 20px;
-} */
+
 .close-modal-btn {
   position: absolute;
   top: 16px;
@@ -138,4 +126,97 @@ img {
 }
 .close-modal-btn:hover {
   color: #d00;
+}
+#contact-desktop {
+  display: none;
+}
+@media screen and (max-width: 700px) {
+  #first-view {
+    min-height: 100vh;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 70px;
+  }
+
+  #about-section {
+    padding-bottom: 150px;
+  }
+  body {
+    padding-bottom: 60px;
+  }
+
+  #projects {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .project {
+    width: 90vw;
+    max-width: 350px;
+    height: auto;
+    margin: 0 auto;
+  }
+  .main-tech-images img {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+  .project-modal-content,
+  .about-modal-content {
+    width: 98vw;
+    max-width: 98vw;
+    margin: 10% auto;
+    padding: 12px;
+  }
+  #contact-mobile {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    background: #fff;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.07);
+    padding: 12px 0;
+    z-index: 100;
+    text-align: center;
+  }
+  #contact-desktop {
+    display: none;
+  }
+  .show-projects-btn {
+    display: block;
+    margin: 18px auto 24px auto;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    border: none;
+    background: #d7b2c4;
+    color: #333;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  }
+  .show-projects-btn:active {
+    background: #c08fa7;
+  }
+}
+
+@media screen and (min-width: 701px) {
+  .show-projects-btn {
+    display: none;
+  }
+  #first-view {
+    display: block;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  #contact-mobile {
+    display: none;
+  }
+  #contact-desktop {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
 }
