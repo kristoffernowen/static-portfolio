@@ -97,7 +97,10 @@ img {
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
 }
-
+.about-modal-content,
+.project-modal-content {
+  position: relative;
+}
 .project-modal-content {
   background: white;
   margin: 10% auto;
@@ -114,8 +117,25 @@ img {
   max-width: 800px;
   border-radius: 8px;
 }
-#close-btn {
+/* #close-btn {
   float: right;
   cursor: pointer;
   font-size: 20px;
+} */
+.close-modal-btn {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  z-index: 10;
+  padding: 0 8px;
+  line-height: 1;
+  transition: color 0.2s;
+}
+.close-modal-btn:hover {
+  color: #d00;
 }

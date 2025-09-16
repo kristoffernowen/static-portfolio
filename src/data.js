@@ -32,7 +32,20 @@ const portfolioData = {
   about: about,
   projects: [
     new Project(
-      "Inlärningsapp",
+      "Status på tjänster - uppdrag hos Contrl",
+      "ASP.NET Core Web API, Entity Framework Core, MySQL, React, TypeScript, " +
+        "xUnit, CI/CD via GitHub, Azure, HTML Agility Pack",
+      `Ett internt verktyg för att övervaka status på kunders tjänster. Jag byggde det
+      under ett uppdrag hos Contrl i Örebro.`,
+      `Jag blev ombedd att bygga en enkel applikation för att övervaka status på deras
+      underleverantörers tjänster. Det är ett api som har en background service som läser 
+      av status för tjänsterna och sparar resultatet i en MySQL databas med Entity Framework 
+      Core. För frontend använde jag React med Typescript. Status blir avläst med intervaller 
+      och visas i en tabell. Det gick även att anmäla sig till epost notifikation om en tjänst
+      hade störningar.`
+    ),
+    new Project(
+      "Inlärningsapp - hobbyprojekt",
       "React, TypeScript, ASP.NET Core Web API, Entity Framework Core, MS SQL, " +
         "TDD inspirerad, Azure, CI/CD via GitHub, Clean Architecture, CQRS",
       `En webbapplikation för att lära in namn och fakta. Så här i efterhand
@@ -59,7 +72,45 @@ const portfolioData = {
       ]
     ),
     new Project(
-      "Grammatikapp",
+      "Feedback App - LIA hos Dugga",
+      "ASP.NET Core Web API, Entity Framework Core, PostgreSQL, Angular, TypeScript",
+      `En prototyp för att låta användare lämna feedback på Duggas produkt. Jag byggde den 
+      under min första LIA, remote, hos Dugga i Stockholm.`,
+      `Jag byggde ett ASP.NET Core Web API med Entity Framework Core för att spara data i en
+      PostgreSQL databas. För frontenden använde jag Angular med TypeScript för att skapa en
+      interaktiv användarupplevelse. Jag lärde mig mycket om webbutveckling i praktiken.`
+    ),
+    new Project(
+      "CV Maker - hobbyprojekt",
+      "ASP.NET Core MVC, API, Entity Framework Core, MS SQL, Blazor",
+      `En webbapplikation för att skapa CV och personligt brev. Jag tröttnade på
+      att skapa CV i Word och tänkte att det vore bra träning att bygga med HTML
+      och konvertera till PDF.`,
+      `Det är en prototyp med MVC genererade CRUD vyer för att spara tid. Sedan har jag byggt 
+      ett api för att välja vilka erfarenheter 
+      etc som ska ingå i CVet och en Blazor frontend för att anropa APIet. Mitt första
+      försök var en MVC som konverterade vyn till pdf men jag tyckte det skulle vara 
+      lärorikare att bygga med Blazor och API. Just nu har jag en branch som använder
+      RazorLight för att generera PDF från en Razor vy, men eftersom RazorLight är gammalt
+      tänker jag gå vidare med Scriban och HTML agility pack för att bygga HTML som sedan
+      görs till en string och blir PDF. I och med att det är en prototyp har jag inte
+      lagt så mycket tid på designen.`,
+      [new Link("Github Repo", "https://github.com/kristoffernowen/JobExp")]
+    ),
+    new Project(
+      "Budgivarprototyp - LIA hos Contrl AB",
+      "ASP.NET Core Web API, Entity Framework Core, MySQL, React",
+      `En prototyp för att hantera offerter. Jag byggde den under min andra LIA på plats hos Contrl i Örebro.`,
+      `Jag var ombedd att bygga en protyp som skulle ge företag möjlighet att lägga in ordrar i ett
+      system för att sedan få in offertar från leverantörer, för att få en god överblick och samlad
+      hantering. Jag byggde ett ASP.NET Core Web API med Entity Framework Core för att spara data i en
+      MySQL databas. APIet organiserades i en enlare Clean Architecture och hade autentisering med JWT 
+      och loggning med Serilog. För frontend använde jag React. Mestadels kretsade det kring en
+      tabellkomponent. Företag fick skapa ordrar och speca upp vad de ville ha, när och hur mycket.
+      Leverantörer kunde sedan lägga in sina offertar med bud på pris och levereranstid per rad.`
+    ),
+    new Project(
+      "Grammatikapp - hobbyprojekt",
       "ASP.NET Core Web Api, Entity Framework Core, MS SQL, Clean Architecture," +
         " Blazor.",
       `Jag har tidigare undervisat invandrare i svenska. Detta är ett tidigt försök
@@ -77,57 +128,6 @@ const portfolioData = {
           "https://github.com/kristoffernowen/LanguageSkeleton"
         ),
       ]
-    ),
-    new Project(
-      "CV Maker",
-      "ASP.NET Core MVC, API, Entity Framework Core, MS SQL, Blazor",
-      `En webbapplikation för att skapa CV och personligt brev. Jag tröttnade på
-      att skapa CV i Word och tänkte att det vore bra träning att bygga med HTML
-      och konvertera till PDF.`,
-      `Det är en prototyp med MVC genererade CRUD vyer för att spara tid. Sedan har jag byggt 
-      ett api för att välja vilka erfarenheter 
-      etc som ska ingå i CVet och en Blazor frontend för att anropa APIet. Mitt första
-      försök var en MVC som konverterade vyn till pdf men jag tyckte det skulle vara 
-      lärorikare att bygga med Blazor och API. Just nu har jag en branch som använder
-      RazorLight för att generera PDF från en Razor vy, men eftersom RazorLight är gammalt
-      tänker jag gå vidare med Scriban och HTML agility pack för att bygga HTML som sedan
-      görs till en string och blir PDF. I och med att det är en prototyp har jag inte
-      lagt så mycket tid på designen.`,
-      [new Link("Github Repo", "https://github.com/kristoffernowen/JobExp")]
-    ),
-    new Project(
-      "Feedback App - LIA",
-      "ASP.NET Core Web API, Entity Framework Core, PostgreSQL, Angular, TypeScript",
-      `En prototyp för att låta användare lämna feedback på Duggas produkt. Jag byggde den 
-      under min första LIA, remote, hos Dugga i Stockholm.`,
-      `Jag byggde ett ASP.NET Core Web API med Entity Framework Core för att spara data i en
-      PostgreSQL databas. För frontenden använde jag Angular med TypeScript för att skapa en
-      interaktiv användarupplevelse. Jag lärde mig mycket om webbutveckling i praktiken.`
-    ),
-    new Project(
-      "Status på tjänster - uppdrag hos Contrl",
-      "ASP.NET Core Web API, Entity Framework Core, MySQL, React, TypeScript, " +
-        "xUnit, CI/CD via GitHub, Azure, HTML Agility Pack",
-      `Ett internt verktyg för att övervaka status på kunders tjänster. Jag byggde det
-      under ett uppdrag hos Contrl i Örebro.`,
-      `Jag blev ombedd att bygga en enkel applikation för att övervaka status på deras
-      underleverantörers tjänster. Det är ett api som har en background service som läser 
-      av status för tjänsterna och sparar resultatet i en MySQL databas med Entity Framework 
-      Core. För frontend använde jag React med Typescript. Status blir avläst med intervaller 
-      och visas i en tabell. Det gick även att anmäla sig till epost notifikation om en tjänst
-      hade störningar.`
-    ),
-    new Project(
-      "Budgivarprototyp - LIA hos Contrl AB",
-      "ASP.NET Core Web API, Entity Framework Core, MySQL, React",
-      `En prototyp för att hantera offerter. Jag byggde den under min andra LIA på plats hos Contrl i Örebro.`,
-      `Jag var ombedd att bygga en protyp som skulle ge företag möjlighet att lägga in ordrar i ett
-      system för att sedan få in offertar från leverantörer, för att få en god överblick och samlad
-      hantering. Jag byggde ett ASP.NET Core Web API med Entity Framework Core för att spara data i en
-      MySQL databas. APIet organiserades i en enlare Clean Architecture och hade autentisering med JWT 
-      och loggning med Serilog. För frontend använde jag React. Mestadels kretsade det kring en
-      tabellkomponent. Företag fick skapa ordrar och speca upp vad de ville ha, när och hur mycket.
-      Leverantörer kunde sedan lägga in sina offertar med bud på pris och levereranstid per rad.`
     ),
   ],
   contact: {

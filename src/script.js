@@ -45,7 +45,7 @@ function renderProjects(data) {
   <p>${p.shortDescription}</p>
   
   <button onclick="openProjectModal(${i})">Läs mer</button>
-  <div class="project-links">Länkar</div>
+  <div class="project-links"></div>
 `;
     const linksDiv = item.querySelector(".project-links");
     if (p.links && p.links.length > 0) {
@@ -97,9 +97,11 @@ function openAboutModal() {
   modal.style.display = "block";
   modal.innerHTML = `
     <div class="about-modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
+      <button class="close-modal-btn" onclick="closeModal()" aria-label="Stäng">&times;</button>
       <h2>Mer om mig</h2>
       <p>${portfolioData.about}</p>
+      <p>CV</p>
+      <p>Bild</p>
     </div>
   `;
 }
@@ -109,11 +111,11 @@ function openProjectModal(i) {
   modal.style.display = "block";
   modal.innerHTML = `
     <div class="project-modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
+      <button class="close-modal-btn" onclick="closeModal()" aria-label="Stäng">&times;</button>
       <h2>${project.title}</h2>
       <p><strong>Teknik:</strong> ${project.techStack}</p>
       <p>${project.longDescription}</p>
-      <div class="project-links">Länkar</div>
+      <div class="project-links"></div>
     </div>
   `;
   const linksDiv = modal.querySelector(".project-links");
@@ -166,5 +168,11 @@ function getMainTechImages(i) {
 
   return `<div class="main-tech-images">${images.join("")}</div>`;
 }
+
+document.getElementById("modal").addEventListener("click", function (event) {
+  if (event.target === this) {
+    closeModal();
+  }
+});
 
 renderPortfolio(portfolioData);
