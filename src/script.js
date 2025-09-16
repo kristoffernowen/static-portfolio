@@ -1,7 +1,11 @@
+const PROJECTS_PER_PAGE = 3;
+let currentPage = 0;
+
 function renderPortfolio(data) {
   document.getElementById("name").innerText = data.name;
   document.getElementById("title").innerText = data.title;
   const about = document.getElementById("about");
+  about.innerHTML = "";
   const aboutP = document.createElement("p");
   aboutP.innerText = data.about;
   const button = document.createElement("button");
@@ -12,19 +16,37 @@ function renderPortfolio(data) {
   about.appendChild(aboutP);
   about.appendChild(button);
 
+  renderProjects(data);
+
+  document.getElementById("contact").innerHTML = `
+    <a href="mailto:${data.contact.email}">E-post</a> |
+    <a href="${data.contact.linkedin}">LinkedIn</a> |
+    <a href="${data.contact.github}">GitHub</a>
+  `;
+}
+
+function renderProjects(data) {
   const projectList = document.getElementById("projects");
-  data.projects.forEach((p, i) => {
+  projectList.innerHTML = "";
+
+  const start = currentPage * PROJECTS_PER_PAGE;
+  const end = Math.min(start + PROJECTS_PER_PAGE, data.projects.length);
+  for (let i = start; i < end; i++) {
+    const p = data.projects[i];
     const item = document.createElement("div");
     item.classList.add("project");
     const mainTechImages = getMainTechImages(i);
     item.innerHTML = `
-      <h4>${p.title}</h4>
-      <p><strong>Byggt med:</strong></p>
-      ${mainTechImages}
-      <p>${p.shortDescription}</p>
-      <button onclick="openProjectModal(${i})">Läs mer</button>
-      <div class="project-links">Länkar</div>
-    `;
+  <div>
+    <h4>${p.title}</h4>
+    <p><strong>Byggt med:</strong></p>
+    <div class="project-tech-images-div">${mainTechImages}</div>
+  </div>
+  <p>${p.shortDescription}</p>
+  
+  <button onclick="openProjectModal(${i})">Läs mer</button>
+  <div class="project-links"></div>
+`;
     const linksDiv = item.querySelector(".project-links");
     if (p.links && p.links.length > 0) {
       p.links.forEach((link) => {
@@ -35,27 +57,51 @@ function renderPortfolio(data) {
         a.innerText = link.name;
         a.target = "_blank";
         div.appendChild(a);
-        linksDiv.appendChild(document.createTextNode(" ")); // Mellanslag mellan länkar
+        linksDiv.appendChild(document.createTextNode(" "));
       });
     }
     projectList.appendChild(item);
-  });
+  }
 
-  document.getElementById("contact").innerHTML = `
-    <a href="mailto:${data.contact.email}">E-post</a> |
-    <a href="${data.contact.linkedin}">LinkedIn</a> |
-    <a href="${data.contact.github}">GitHub</a>
+  let navDiv = document.getElementById("project-nav");
+  if (!navDiv) {
+    navDiv = document.createElement("div");
+    navDiv.id = "project-nav";
+    projectList.parentNode.appendChild(navDiv);
+  }
+  navDiv.innerHTML = `
+    <button id="prev-btn" ${
+      currentPage === 0 ? "disabled" : ""
+    }>Föregående</button>
+    <button id="next-btn" ${
+      end >= data.projects.length ? "disabled" : ""
+    }>Nästa</button>
   `;
+
+  document.getElementById("prev-btn").onclick = () => {
+    if (currentPage > 0) {
+      currentPage--;
+      renderProjects(data);
+    }
+  };
+  document.getElementById("next-btn").onclick = () => {
+    if (end < data.projects.length) {
+      currentPage++;
+      renderProjects(data);
+    }
+  };
 }
 
 function openAboutModal() {
   const modal = document.getElementById("modal");
   modal.style.display = "block";
   modal.innerHTML = `
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
+    <div class="about-modal-content">
+      <button class="close-modal-btn" onclick="closeModal()" aria-label="Stäng">&times;</button>
       <h2>Mer om mig</h2>
       <p>${portfolioData.about}</p>
+      <p>CV</p>
+      <p>Bild</p>
     </div>
   `;
 }
@@ -64,12 +110,12 @@ function openProjectModal(i) {
   const modal = document.getElementById("modal");
   modal.style.display = "block";
   modal.innerHTML = `
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
+    <div class="project-modal-content">
+      <button class="close-modal-btn" onclick="closeModal()" aria-label="Stäng">&times;</button>
       <h2>${project.title}</h2>
       <p><strong>Teknik:</strong> ${project.techStack}</p>
       <p>${project.longDescription}</p>
-      <div class="project-links">Länkar</div>
+      <div class="project-links"></div>
     </div>
   `;
   const linksDiv = modal.querySelector(".project-links");
@@ -122,5 +168,11 @@ function getMainTechImages(i) {
 
   return `<div class="main-tech-images">${images.join("")}</div>`;
 }
+
+document.getElementById("modal").addEventListener("click", function (event) {
+  if (event.target === this) {
+    closeModal();
+  }
+});
 
 renderPortfolio(portfolioData);
