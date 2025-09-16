@@ -130,6 +130,7 @@ img {
 #contact-desktop {
   display: none;
 }
+
 @media screen and (max-width: 700px) {
   #first-view {
     min-height: 100vh;
