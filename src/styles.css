@@ -59,9 +59,6 @@ header {
   align-items: center;
 }
 .project p {
-  /* overflow: hidden;
-  text-overflow: ellipsis;
-  max-height: 4.5em; */
   margin-bottom: 8px;
 }
 .project .long-description {
@@ -137,7 +134,7 @@ img {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding-bottom: 70px;
   }
 
@@ -207,8 +204,6 @@ img {
   }
   #first-view {
     display: block;
-    flex-direction: column;
-    justify-content: space-between;
   }
   #contact-mobile {
     display: none;
@@ -217,7 +212,7 @@ img {
     display: block;
     width: 100%;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 20px;
     margin-bottom: 20px;
   }
 }
