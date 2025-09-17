@@ -1,5 +1,14 @@
-const PROJECTS_PER_PAGE = 3;
+let PROJECTS_PER_PAGE = window.innerWidth <= 700 ? 6 : 3;
 let currentPage = 0;
+
+window.addEventListener("resize", () => {
+  const newValue = window.innerWidth <= 700 ? 6 : 3;
+  if (PROJECTS_PER_PAGE !== newValue) {
+    PROJECTS_PER_PAGE = newValue;
+    currentPage = 0;
+    renderProjects(portfolioData);
+  }
+});
 
 function renderPortfolio(data) {
   document.getElementById("name").innerText = data.name;
@@ -27,15 +36,9 @@ function renderPortfolio(data) {
   if (desktopContact) {
     desktopContact.innerHTML = `
     <a href="mailto:${data.contact.email}">E-post</a> |
-    <a href="${data.contact.linkedin}">LinkedIn</a> |
-    <a href="${data.contact.github}">GitHub</a>
+    <a href="${data.contact.linkedin}">LinkedIn</a>
   `;
   }
-  /* document.getElementById("contact").innerHTML = `
-    <a href="mailto:${data.contact.email}">E-post</a> |
-    <a href="${data.contact.linkedin}">LinkedIn</a> |
-    <a href="${data.contact.github}">GitHub</a>
-  `; */
 }
 
 function renderProjects(data) {

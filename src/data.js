@@ -133,6 +133,5 @@ const portfolioData = {
   contact: {
     email: "kristoffer.nowen@gmail.com",
     linkedin: "https://linkedin.com/in/kristoffernowen",
-    github: "https://github.com/kristoffernowen",
   },
 };
