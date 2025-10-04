@@ -15,13 +15,6 @@ class Link {
   }
 }
 
-/* const oldAbout = `Jag bygger moderna webbapplikationer med .NET och JavaScript.
-  Jag har min bakgrund inom humaniora och socialt arbete, vilket ger mig
-  en god förmåga att förstå många perspektiv och behov. Det har också lärt 
-  mig en hel del om kommunikation och samarbete. Jag är nyfiken och lär mig
-  snabbt nya saker. Jag trivs i team och tycker om att samarbeta för att 
-  hitta de bästa lösningarna.`; */
-
 const about = `Med bakgrund inom humaniora och socialt arbete och kärlek för både det
 praktiskt enkla och det mångfacetterade, bygger jag moderna webbapplikationer med .NET och
 JavaScript.`;
@@ -135,3 +128,5 @@ const portfolioData = {
     linkedin: "https://linkedin.com/in/kristoffernowen",
   },
 };
+
+export { portfolioData, Project, Link };
