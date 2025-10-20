@@ -10,7 +10,7 @@ export function renderPortfolio(data, renderProjectsFn) {
   aboutP.innerText = data.about;
   const button = document.createElement("button");
   button.innerText = "Läs mer";
-  button.addEventListener("click", () => openAboutModal(data.about));
+  button.addEventListener("click", () => openAboutModal(data.longAbout));
   about.appendChild(aboutP);
   about.appendChild(button);
 
