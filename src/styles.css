@@ -61,6 +61,16 @@ header {
 .project p {
   margin-bottom: 8px;
 }
+.project-detail-section {
+  margin-bottom: 20px;
+}
+
+.project-detail-section h3 {
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
 .project .long-description {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -77,6 +87,7 @@ img {
   gap: 10px;
   margin-top: 10px;
 }
+
 #modal {
   display: none;
   position: fixed;
@@ -86,27 +97,28 @@ img {
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
 }
+
 .about-modal-content,
 .project-modal-content {
   position: relative;
 }
-.project-modal-content {
-  background: white;
-  margin: 10% auto;
-  padding: 20px;
-  width: 80%;
-  max-width: 500px;
-  border-radius: 8px;
-}
+
+.project-modal-content,
 .about-modal-content {
   background: white;
-  margin: 10% auto;
+  margin: 5% auto; /* Minska från 10% till 5% */
   padding: 20px;
   width: 80%;
   max-width: 800px;
+  max-height: 70vh; /* Lägg till maxhöjd */
   border-radius: 8px;
-}
+  overflow-y: auto; /* Gör den scrollbar vertikalt */
 
+  height: auto;
+  /* Lägg till dessa för att säkerställa scrolling fungerar */
+  display: flex;
+  flex-direction: column;
+}
 .close-modal-btn {
   position: absolute;
   top: 16px;
@@ -126,6 +138,16 @@ img {
 }
 #contact-desktop {
   display: none;
+}
+
+/* Särskild hantering för laptop-storlek */
+@media screen and (min-width: 701px) and (max-width: 1200px) {
+  .project-modal-content,
+  .about-modal-content {
+    max-height: 80vh; /* Ännu mindre för laptop */
+    margin: 3% auto; /* Mindre margin för mer plats */
+    padding-bottom: 100px;
+  }
 }
 
 @media screen and (max-width: 700px) {
@@ -160,12 +182,15 @@ img {
     width: 2.2rem;
     height: 2.2rem;
   }
+
   .project-modal-content,
   .about-modal-content {
     width: 90vw;
     max-width: 90vw;
-    margin: 10% auto;
-    padding: 12px;
+    margin: 5% auto;
+    padding: 12px 12px 80px 12px;
+    max-height: 90vh;
+    overflow-y: auto; /* Gör den scrollbar */
   }
   #contact-mobile {
     position: fixed;
@@ -174,7 +199,7 @@ img {
     width: 100vw;
     background: #fff;
     box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.07);
-    padding: 12px 0;
+    padding: 12px 0 30px 0;
     z-index: 100;
     text-align: center;
   }
