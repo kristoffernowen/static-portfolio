@@ -81,7 +81,10 @@ Resultatet är en sida jag hostar på Azure där användare kan skapa övningar,
           "GitHub API Repo",
           "https://github.com/kristoffernowen/Learner"
         ),
-        new Link("Live Demo", "https://www.koffepages.se"),
+        new Link(
+          "Live Demo",
+          "https://yellow-river-0d64e4110.5.azurestaticapps.net"
+        ),
         new Link(
           "Github Client Repo",
           "https://github.com/kristoffernowen/learner_react_frontend"
