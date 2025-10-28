@@ -4,6 +4,10 @@ class Project {
     this.techStack = techStack;
     this.shortDescription = shortDescription;
     this.longDescription = longDescription;
+    this.background = background;
+    this.process = process;
+    this.challenges = challenges;
+    this.result = result;
     this.links = links;
   }
 }
