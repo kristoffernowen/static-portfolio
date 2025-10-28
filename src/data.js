@@ -1,15 +1,5 @@
 class Project {
-  constructor({
-    title,
-    techStack,
-    shortDescription,
-    longDescription,
-    background,
-    process,
-    challenges,
-    result,
-    links,
-  }) {
+  constructor({ title, techStack, shortDescription, longDescription, links }) {
     this.title = title;
     this.techStack = techStack;
     this.shortDescription = shortDescription;
@@ -114,7 +104,19 @@ Resultatet var en fullt fungerande prototyp som jag kunde demonstrera för Dugga
 
 Innan detta hade jag byggt ett ASP.NET Core MVC som konverterade en view till PDF. Nu ville jag utforska om jag kunde skapa mina mallar och PDF i ett API och skicka de till valfri klient. För att slippa så mycket jobb med steget med data till CV använde jag ett MVC projekt med scaffoldade Razor Pages och Controllers för CRUD av CV data. Sedan byggde jag mitt API med typ Clean Architecture (och ett märklig Shared class library project för att sy ihop med MVC delen) och ett Blazor UI för att hantera att en användare skapar en CV profil utifrån vald CV data och väljer bland tillgängliga mallar, förhandsgranskar och exporterar PDF.
 
-Jag utgick från Razor Light biblioteket för att hantera mina första templates som partial.cshtml som kunde sättas ihop till ett fullt CV i en main.cshtml som jag med Select.HtmlToPdf konverterade till en PDF. Det fungerade bra men jag ville gå vidare med ett modernare bibliotek och påbörjade en annan implementering där tanken är att använda Scriban för att bygga mindre delar i CV och sedan Html Agility pack för att bygga ihop de till en fil att konvertera till PDF. De lever just nu i varsin branch i Git som implementeringar av en IPdfTemplateEngine.
+Jag utgick från Razor Light biblioteket för att hantera mina första templates som partial.cshtml
+ som kunde sättas ihop till ett fullt CV i en main.cshtml som jag med Select.HtmlToPdf konverterade 
+ till en PDF. Det fungerade bra men jag ville gå vidare med ett modernare bibliotek och påbörjade en 
+ annan implementering där tanken är att använda Scriban för att bygga mindre delar i CV och sedan 
+ Html Agility pack för att bygga ihop de till en fil att konvertera till PDF. De lever just nu i 
+ varsin branch i Git som implementeringar av en IPdfTemplateEngine. 
+ 
+
+Jag har nu upptäckt att det finns bra 
+val för razor pages i mitt scenario med Razor.Templating.Core som jag inte sett förut. Detta projekt har mest
+varit att prova på, men det påminner om  att det är viktigt att undersöka tillgängliga alternativ innan man
+börjar bygga. I det här fallet har jag varit lite okritisk mot AIs förslag och gått vidare med dem utan att
+efterforska alternativen.
 
 Resultatet är en prototyp som kan skapa användare, samla data för CV och skapa olika CV utifrån vald profil och mall samt exportera detta som PDF. Det saknas en hel del logik för att säkerställa att CV alltid renderas korrekt oberoende av input till t ex arbetserfarenhet och utbildningar, men det hanterar en del fall väl och tillåter olika profiler och mallar. Det har varit väldigt lärorikt men visar också vilket stort jobb en del små detaljer kräver om de ska fungera robust.
 `,
@@ -158,6 +160,7 @@ Det är en fungerande men lite begränsad app. Jag påbörjade arbetet med att s
   contact: {
     email: "kristoffer.nowen@gmail.com",
     linkedin: "https://linkedin.com/in/kristoffernowen",
+    github: "https://github.com/kristoffernowen",
   },
 };
 
