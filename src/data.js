@@ -48,6 +48,35 @@ Resultatet blev ett komplett API som uppdaterar driftstatus, presenterar den via
 `,
     }),
     new Project({
+      title: "Grammatikapp - hobbyprojekt",
+      techStack:
+        "ASP.NET Core 10 Web Api, Entity Framework Core, Clean Architecture, CQRS med MediatR, xUnit med Moq, React",
+      shortDescription: `En app för att träna svensk grammatik med fokus på ordföljd och tempus. Byggd utifrån min erfarenhet av att undervisa invandrare - visade sig vara väldigt krävande att få robust.`,
+      longDescription: `Övningsprojekt istället för todo app. Jag har undervisat invandrare i svenska och såg att man kunde skapa träningsverktyg för vissa enkla grammatiska regler, där man kan toggla mellan alternativ och se hur de fungerar.
+
+Ursprungligen byggt med .NET 7, ett API, en Blazor WebAssembly klient och SQL Server databas.
+
+Uppdaterat med .NET 10. Jag bytte till en Copilot byggd React klient och en Sqlite databas för att lättare publicera en demo på Azure och GitHub Pages. Det är gratis API på Azure, så kan starta väldigt segt och jag hade problem med att få det stabilt med Sqlite.
+
+Några av exemplen lyckas inte tillämpa korrekta grammatiska böjningar, men annars visar den exemplet jag jobbade med - att byta ordföljd för frågor eller påståenden, ändra numerus och bestämdhet samt visa tempus på en kort mening med subjekt och predikat. 
+
+Den gamla logiken jag jobbade med litade på olika Service som proceduriskt anpassade meningen, som i en pipeline. Den var väldigt svår att gå vidare med. Dessutom har jag använt onödigt krångliga saker, för att få träna. Jag har påbörjat att arbeta mer domändrivet med rika modeller i APIet. Det skapar mer flexibilitet och enklare logik att bygga fler use cases och meningsexempel. Får se om jag fortsätter här eller i en helt egen version.`,
+      links: [
+        new Link(
+          "Live Demo",
+          "https://kristoffernowen.github.io/copilot-language-react/",
+        ),
+        new Link(
+          "Github backend repo",
+          "https://github.com/kristoffernowen/LanguageSkeleton",
+        ),
+        new Link(
+          "Github frontend repo",
+          "https://github.com/kristoffernowen/copilot-language-react",
+        ),
+      ],
+    }),
+    new Project({
       title: "Inlärningsapp - hobbyprojekt",
       techStack:
         "React, TypeScript, ASP.NET Core Web API, Entity Framework Core, MS SQL, " +
@@ -65,15 +94,15 @@ Resultatet är en sida jag hostar på Azure där användare kan skapa övningar,
       links: [
         new Link(
           "GitHub API Repo",
-          "https://github.com/kristoffernowen/Learner"
+          "https://github.com/kristoffernowen/Learner",
         ),
         new Link(
           "Live Demo",
-          "https://yellow-river-0d64e4110.5.azurestaticapps.net"
+          "https://yellow-river-0d64e4110.5.azurestaticapps.net",
         ),
         new Link(
           "Github Client Repo",
-          "https://github.com/kristoffernowen/learner_react_frontend"
+          "https://github.com/kristoffernowen/learner_react_frontend",
         ),
       ],
     }),
@@ -131,26 +160,6 @@ Det är byggt med ett REST API med grundläggande separation mellan lagren och e
 
 Resultatet blev en prototyp som med inloggning av användare och hantering av roller låter de följa ordrar och anbudsförslag på dessa. 
 `,
-    }),
-    new Project({
-      title: "Grammatikapp - hobbyprojekt",
-      techStack:
-        "ASP.NET Core 7 Web Api, Entity Framework Core, Clean Architecture, CQRS med MediatR, xUnit med Moq, Blazor WebAssembly",
-      shortDescription: `En app för att träna svensk grammatik med fokus på ordföljd och tempus. Byggd utifrån min erfarenhet av att undervisa invandrare - visade sig vara väldigt krävande att få robust.`,
-      longDescription: `Övningsprojekt. Jag har tidigare undervisat invandrare i svenska och såg en möjlighet att skapa ett verktyg som hjälper till att visa mönster inom tempus, numerus och hur ordföljd ändras. Jag valde några use cases och byggde denna app och övade på några programmeringstekniker och verktyg.
-
-Jag byggde ett .NET 7 API med Clean Architecture och CQRS som servar meningar med olika val till en klient. Dessa meningar kan byggas utifrån lagrade ord och sedan instrueras att visa singular eller plural, bestämd eller obestämd form, tempus på verb och om det är en fråga eller ett svar. Jag har använt enkla (anemiska) modeller som får gå genom en kedja av services som formaterar meningen utifrån instruktionerna i requesten. Det var relativt enkelt att implementera en service som byter plats på subjekt och predikat vid påstående och fråga, men det var desto svårare att hantera att futurum och perfekt använder hjälpverb. Jag fick frångå att ha verb som prop i meningen och i stället ha satsdel för predikat och subjekt. I denna satsdel kunde jag ha en dictionary med verb ett och verb två. Beroende på tempus kunde jag hämta lämpligt hjälpverb och sedan placera i ordföljden. Jag skrev flera Mockbaserade enhetstester men har också litat på manuell testning en hel del i mina use cases. 
-
-Klienten är skriven med Blazor och ger användaren möjlighet att från listor först välja ord till sin mening och därefter göra valen för numerus, bestämdhet, tempus och typ av mening. Resultatet presenteras sedan och kan skiftas fram och tillbaka.
-
-Det är en fungerande men lite begränsad app. Jag påbörjade arbetet med att skapa funktion för att kunna fylla på med fler ord men det kräver ganska avancerad validering och logik för att säkerställa att fritt valda ord kan fungera i dessa use cases. Dessutom skulle jag vilja skriva om hur den övriga logiken hanteras för att få något mer överblickbart och lättare att använda i andra use cases. Jag har tittat på några exempel men inte riktigt fastnat för något. Meningar med en huvudsats är ganska enkla att hantera på detta sätt men vill man bygga meningar med flera satser blir det snabbt väldigt krävande.
-`,
-      links: [
-        new Link(
-          "Github Repo",
-          "https://github.com/kristoffernowen/LanguageSkeleton"
-        ),
-      ],
     }),
   ],
   contact: {
