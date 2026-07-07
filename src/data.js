@@ -77,6 +77,33 @@ Den gamla logiken jag jobbade med litade på olika Service som proceduriskt anpa
       ],
     }),
     new Project({
+      title: "JobAssistant - AI-assisterat hobbyprojekt",
+      techStack:
+        "ASP.NET Core 10 Web API, Entity Framework Core, SQL Server, Vertical Slice Architecture, FluentValidation, xUnit, AI-assisterad utveckling (agent-driven workflow), integrationer mot Arbetsförmedlingens API:er",
+      shortDescription:
+        "Ett .NET-baserat API för jobbsökning som hämtar och filtrerar platsannonser från externa källor. Projektet är byggt genom AI-samarbete där jag nästan uteslutande arbetat med krav, instruktioner, granskning och iteration mot en kodagent.",
+      longDescription:
+        "Detta projekt är medvetet genomfört som AI-assisterad engineering: jag har primärt jobbat med att styra implementationen via tydliga instruktioner till en agent, snarare än traditionell manuell kodning rad för rad.\n\n" +
+        "Mitt fokus har varit att bryta ner problem, formulera exakta krav, sätta arkitekturella ramar, iterera på endpoint-kontrakt och valideringsregler, samt kvalitetssäkra resultat med tester och dokumentation.\n\n" +
+        "Rent funktionellt innehåller lösningen både stateless sökflöde och sessionsbaserad refine-logik mot externa jobb-API:er, med konsekvent felhantering (ProblemDetails), tydliga domänregler och testbar struktur enligt vertical slice-principer.\n\n" +
+        "Metoder jag övat och använt i praktiken:\n" +
+        "- prompt-driven kravspecifikation och stegvis leveransstyrning\n" +
+        "- beslutsspårning med ADR och uppdelning mellan instruktion, beslut och implementation\n" +
+        "- iterativ verifiering med test-feedback och refaktorering\n" +
+        "- dokumentation för spårbarhet: planering, instruktioner, implementeringsresultat och loggar\n\n" +
+        "Projektet visar därför både backendkompetens i .NET och praktisk förmåga att leda AI-stödd utveckling på ett strukturerat och reproducerbart sätt.",
+      links: [
+        new Link(
+          "GitHub repo",
+          "https://github.com/kristoffernowen/JobAssistant",
+        ),
+        new Link(
+          "Projektets dokumentation",
+          "https://github.com/kristoffernowen/JobAssistant/tree/main/docs",
+        ),
+      ],
+    }),
+    new Project({
       title: "Inlärningsapp - hobbyprojekt",
       techStack:
         "React, TypeScript, ASP.NET Core Web API, Entity Framework Core, MS SQL, " +
